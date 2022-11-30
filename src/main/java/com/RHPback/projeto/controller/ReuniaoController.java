@@ -1,8 +1,7 @@
 package com.RHPback.projeto.controller;
 
-import java.net.URI;
-import java.util.List;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -14,8 +13,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.RHPback.projeto.entities.RespostaModelo;
 import com.RHPback.projeto.entities.Reuniao;
 import com.RHPback.projeto.service.ReuniaoService;
 
@@ -45,33 +44,24 @@ public class ReuniaoController {
 	/////////////////////////////////////////////////////////////
 
 	@PostMapping("/cadastrar")
-	public ResponseEntity<Reuniao> insert(@RequestBody Reuniao obj) {
-		obj = service.insert(obj);
-		// return ResponseEntity.ok().body( obj);// retorna 200 q n é o ideal
-
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getIdReuniao())
-				.toUri();
-
-		return ResponseEntity.created(uri).body(obj);
+	public ResponseEntity<?> insert(@RequestBody Reuniao obj) {
+          return service.cadastrar(obj, "cadastrar");
+		
 	}
 
 	/////////////////////////// PUT //////////////////////////////
 	//////////////////////////////////////////////////////////////
 
-	@PutMapping(value = "/alterar/{id}")
-
-	public ResponseEntity<Reuniao> update(@PathVariable Long id, @RequestBody Reuniao obj) {
-		obj = service.update(id, obj);
-		return ResponseEntity.ok().body(obj);
+	@PutMapping(value = "/alterar")
+	public ResponseEntity<?> update( @RequestBody Reuniao obj) {
+		return service.cadastrar(obj, "alterar");
 	}
 //////////////////////////DELETE////////////////////////////
 /////////////////////////////////////////////////////////////
-
-	@DeleteMapping(value = ("/remover/{id}"))
-
-	public ResponseEntity<Void> delete(@PathVariable Long id) {
-		service.delete(id);
-		return ResponseEntity.noContent().build();
-
+	@DeleteMapping("/remover/{codigo}")
+	public ResponseEntity<RespostaModelo> remover(@PathVariable long codigo){
+		return service.remover(codigo);
 	}
+	
+	
 }

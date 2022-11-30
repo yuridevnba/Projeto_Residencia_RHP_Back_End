@@ -49,8 +49,6 @@ public class Funcionario implements Serializable {
 
 	////////////////////// ASSOCIAÇÕES/////////////////////
 	
-
-	
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "convidados")
@@ -58,9 +56,7 @@ public class Funcionario implements Serializable {
 
 	
 	
-
-
-	///////////////////////////// COLLETCTIONS GET///////////////////
+	///////////////////////////// COLLETCTIONS GET/////////
 
 	
 	public Set<Reuniao> getReuniao() {

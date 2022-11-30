@@ -27,7 +27,7 @@ import lombok.Setter;
 public class Reuniao implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	/////////////////// ATRIBUTOS////////////////////////////////////
+	/////////////////// ATRIBUTOS////////////////////////
 	
 	
 	@Id
@@ -48,14 +48,14 @@ public class Reuniao implements Serializable {
 
 	
 	
-	///////////////////////// ASSOCIAÇÕES////////////////////////////////
+	///////////////////////// ASSOCIAÇÕES////////////////
 	
 	@OneToMany
 	@JoinTable(name = "tb_reuniao_funcionario", joinColumns = @JoinColumn(name = "reuniao_id"), inverseJoinColumns = @JoinColumn(name = "funcionario_id"))
 	private Set<Funcionario> convidados = new HashSet<>();
 
 
-	////////// GET DE COLECTIONS//////////////////
+	////////// GET DE COLECTIONS////////////////////////
 	
 	public Set<Funcionario> getConvidados() {
 		return convidados;
