@@ -10,7 +10,10 @@
 <body>
 <h2> PROBLEMA </h2>
    <h1> O Real Hospital Português possui a necessidade de organização da agenda de horários de seus eventos internos, para solicitar a disponibilidade dos recursos humanos e materiais, sem que haja convergência de horários com uma agenda recorrente.</h1>
+   <br>
    <h1>  Será criada uma plataforma de agendamento de salas, para que o usuário tenha visibilidade do horário, número e identificação de participantes do evento e duração da reunião. Com isso, as agendas não convergiram, e os recursos serão solicitados antecipadamente.</h1>
+   ![image](https://user-images.githubusercontent.com/100159089/220226601-50c23c2b-14ef-4aab-90ed-433962a31d0d.png)
+
 
 </body>
 </html>
